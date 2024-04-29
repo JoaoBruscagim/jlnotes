@@ -103,12 +103,13 @@ const dataAtual = () => {
 const checkNotes = () => {
     var notes = JSON.parse(localStorage.getItem("data"))
 
-    if(notes.length > 0 || !notes){
-        updateNotesContainer()
-    }else{
+    if(notes == null|| notes.length == 0){
         notesContainer.innerHTML = 
         `<div id="empty">Poxa, nenhuma anotação... 😢</div>`
+    } else if(notes.length > 0){
+        updateNotesContainer()
     }
+
 }
 
 
