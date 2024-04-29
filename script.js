@@ -87,28 +87,24 @@ const reset = () => {
 
 const dataAtual = () => {
         var dataHoraAtual = new Date();
-      
-        // Obtém os componentes da data e hora
+    
         var dia = dataHoraAtual.getDate();
-        var mes = dataHoraAtual.getMonth() + 1; // Mês é indexado a partir de zero, então adicionamos 1
+        var mes = dataHoraAtual.getMonth() + 1; 
         var ano = dataHoraAtual.getFullYear();
         var horas = dataHoraAtual.getHours();
         var minutos = dataHoraAtual.getMinutes();
       
-        // Formata a data e hora para exibição
         var dataFormatada = `${dia}/${mes}/${ano}`;
         var horaFormatada = `${horas}:${minutos}`
       
-        // Retorna a data e hora formatadas
         return `${dataFormatada},${horaFormatada}`
 }
 
 const checkNotes = () => {
     var notes = JSON.parse(localStorage.getItem("data"))
 
-    if(notes.length > 0){
+    if(notes.length > 0 || !notes){
         updateNotesContainer()
-        console.log('sim')
     }else{
         notesContainer.innerHTML = 
         `<div id="empty">Poxa, nenhuma anotação... 😢</div>`
