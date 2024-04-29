@@ -86,33 +86,31 @@ const reset = () => {
 }
 
 const dataAtual = () => {
-        var dataHoraAtual = new Date();
-    
-        var dia = dataHoraAtual.getDate();
-        var mes = dataHoraAtual.getMonth() + 1; 
-        var ano = dataHoraAtual.getFullYear();
-        var horas = dataHoraAtual.getHours();
-        var minutos = dataHoraAtual.getMinutes();
-      
-        var dataFormatada = `${dia}/${mes}/${ano}`;
-        var horaFormatada = `${horas}:${minutos}`
-      
-        return `${dataFormatada},${horaFormatada}`
+    var dataHoraAtual = new Date();
+
+    var dia = dataHoraAtual.getDate();
+    var mes = dataHoraAtual.getMonth() + 1;
+    var ano = dataHoraAtual.getFullYear();
+    var horas = dataHoraAtual.getHours();
+    var minutos = dataHoraAtual.getMinutes();
+
+    var dataFormatada = `${dia}/${mes}/${ano}`;
+    var horaFormatada = `${horas}:${minutos}`
+
+    return `${dataFormatada},${horaFormatada}`
 }
 
 const checkNotes = () => {
     var notes = JSON.parse(localStorage.getItem("data"))
 
-    if(notes == null|| notes.length == 0){
-        notesContainer.innerHTML = 
-        `<div id="empty">Poxa, nenhuma anotação... 😢</div>`
-    } else if(notes.length > 0){
+    if (notes == null || notes.length == 0) {
+        notesContainer.innerHTML =
+            `<div id="empty">Poxa, nenhuma anotação... 😢</div>`
+    } else if (notes.length > 0) {
         updateNotesContainer()
     }
 
 }
-
-
 
 openNoteFormBtn.addEventListener("click", () =>
     notesForm.classList.toggle("hidden")
